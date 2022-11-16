@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity4">
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="141dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#F1D23F"
+        android:text="前往結帳"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rd04" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="119dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="16dp"
+        android:text="吃飽食堂"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="61dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/manpuku_geppu" />
+
+    <Button
+        android:id="@+id/but01"
+        android:layout_width="81dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="63dp"
+        android:text="主食"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/but02"
+        android:layout_width="81dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="63dp"
+        android:text="小菜"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/but01"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/but03"
+        android:layout_width="81dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:backgroundTint="#4EB0FB"
+        android:text="點心"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/but02"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <Button
+        android:id="@+id/but04"
+        android:layout_width="81dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:text="飲品"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/but03"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/tv01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="120dp"
+        android:text="奶酪"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv05"
+        app:layout_constraintTop_toBottomOf="@+id/but02" />
+
+    <TextView
+        android:id="@+id/tv02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="96dp"
+        android:text="冰淇淋"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv06"
+        app:layout_constraintTop_toBottomOf="@+id/tv01" />
+
+    <TextView
+        android:id="@+id/tv03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="72dp"
+        android:text="手工布丁"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv07"
+        app:layout_constraintTop_toBottomOf="@+id/tv02" />
+
+    <TextView
+        android:id="@+id/tv04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="72dp"
+        android:text="花生麻糬"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv08"
+        app:layout_constraintTop_toBottomOf="@+id/tv03" />
+
+    <TextView
+        android:id="@+id/tv05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="78dp"
+        android:text="$40"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/but04" />
+
+    <TextView
+        android:id="@+id/tv06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="78dp"
+        android:text="$40"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv05" />
+
+    <TextView
+        android:id="@+id/tv07"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="89dp"
+        android:layout_marginEnd="78dp"
+        android:text="$40"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv06" />
+
+    <TextView
+        android:id="@+id/tv08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="78dp"
+        android:text="$30"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv07" />
+
+    <RadioButton
+        android:id="@+id/rb01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv05" />
+
+    <RadioButton
+        android:id="@+id/rb02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv06" />
+
+    <RadioButton
+        android:id="@+id/rb03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv07" />
+
+    <RadioButton
+        android:id="@+id/rd04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv08" />
+
+    <ImageView
+        android:id="@+id/iv01"
+        android:layout_width="96dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="31dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/but01"
+        app:srcCompat="@drawable/a"
+        tools:srcCompat="@drawable/_03" />
+
+    <ImageView
+        android:id="@+id/iv02"
+        android:layout_width="104dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv02"
+        app:layout_constraintTop_toBottomOf="@+id/iv01"
+        app:srcCompat="@drawable/b"
+        tools:srcCompat="@drawable/_01" />
+
+    <ImageView
+        android:id="@+id/iv03"
+        android:layout_width="95dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv03"
+        app:layout_constraintTop_toBottomOf="@+id/iv02"
+        app:srcCompat="@drawable/c"
+        tools:srcCompat="@drawable/_04" />
+
+    <ImageView
+        android:id="@+id/iv04"
+        android:layout_width="103dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv04"
+        app:layout_constraintTop_toBottomOf="@+id/iv03"
+        app:srcCompat="@drawable/baifan"
+        tools:srcCompat="@drawable/_02" />
+</androidx.constraintlayout.widget.ConstraintLayout>
