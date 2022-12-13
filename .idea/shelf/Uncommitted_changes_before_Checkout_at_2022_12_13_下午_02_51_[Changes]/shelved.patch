@@ -1,0 +1,29 @@
+Index: app/src/main/java/com/example/ordersystem/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.ordersystem\r\n\r\nimport android.content.Intent\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport android.widget.ImageView\r\nimport androidx.core.util.rangeTo\r\n\r\n\r\nclass FoodData (_name: String, _price: Int, _imgUrl: String,_type: Int , _count :Int){\r\n    val name = _name\r\n    val price = _price\r\n    val imgUrl = _imgUrl\r\n    val type = _type\r\n    var count = _count\r\n}\r\n\r\nclass MainData(){\r\n    var orderType = 0\r\n    var foodType = ArrayList<String>()\r\n    var foodDataArray = ArrayList<FoodData>()\r\n    var total = 0\r\n    var nowFoodType = 0\r\n\r\n    init {\r\n        this.getFoodData()\r\n        this.getFoodType()\r\n    }\r\n\r\n    private fun getFoodData(){\r\n        val data = arrayOf(\r\n            arrayOf(\"滷肉飯\", 60, \"\", 0),\r\n            arrayOf(\"控肉販\", 60, \"\", 0),\r\n            arrayOf(\"豬腳飯\", 60, \"\", 0),\r\n            arrayOf(\"白　飯\", 10, \"\", 0),\r\n\r\n            arrayOf(\"煲青菜\", 30, \"\", 1),\r\n            arrayOf(\"皮蛋豆腐\", 40, \"\", 1),\r\n            arrayOf(\"滷豬腳\", 75, \"\", 1),\r\n            arrayOf(\"荷包蛋\", 10, \"\", 1),\r\n\r\n            arrayOf(\"奶　烙\", 40, \"\", 2),\r\n            arrayOf(\"冰淇淋\", 40, \"\", 2),\r\n            arrayOf(\"手工布丁\", 40, \"\", 2),\r\n            arrayOf(\"花生麻糬\", 10, \"\", 2),\r\n\r\n            arrayOf(\"可口可樂\", 30, \"\", 3),\r\n            arrayOf(\"百事可樂\", 30, \"\", 3),\r\n            arrayOf(\"雪　碧\", 30, \"\", 3),\r\n            arrayOf(\"黑松沙士\", 30, \"\", 3),\r\n        )\r\n\r\n        for (i in 0 .. (data.size - 1).toInt()){\r\n            this.foodDataArray.add(FoodData(data[i][0].toString(),\r\n                data[i][1].toString().toInt(),\r\n                data[i][2].toString(),\r\n                data[i][3].toString().toInt(),0))\r\n        }\r\n    }\r\n\r\n    private fun getFoodType(){\r\n        val data = arrayOf(\"主食\", \"小菜\", \"點心\", \"飲品\")\r\n\r\n        for (i in 0 .. (data.size -1).toInt()){\r\n            this.foodType.add(data[i])\r\n        }\r\n    }\r\n\r\n\r\n}\r\n\r\nclass MainActivity : AppCompatActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_main)\r\n\r\n        var data = MainData()\r\n\r\n        val iv1:ImageView = findViewById(R.id.imageView3)\r\n        val iv2:ImageView = findViewById(R.id.imageView2)\r\n\r\n        iv1.setOnClickListener{\r\n            Intent(this,MainActivity2::class.java).apply {\r\n                startActivity(this)\r\n            }\r\n        }\r\n        iv2.setOnClickListener{\r\n            Intent(this,MainActivity2::class.java).apply {\r\n                startActivity(this)\r\n            }\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ordersystem/MainActivity.kt b/app/src/main/java/com/example/ordersystem/MainActivity.kt
+--- a/app/src/main/java/com/example/ordersystem/MainActivity.kt	
++++ b/app/src/main/java/com/example/ordersystem/MainActivity.kt	
+@@ -4,7 +4,9 @@
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+ import android.widget.ImageView
++import android.widget.TextView
+ import androidx.core.util.rangeTo
++import org.w3c.dom.Text
+ 
+ 
+ class FoodData (_name: String, _price: Int, _imgUrl: String,_type: Int , _count :Int){
+@@ -75,6 +77,8 @@
+         setContentView(R.layout.activity_main)
+ 
+         var data = MainData()
++        val test = findViewById<TextView>(R.id.textView20)
++        test.text = data.foodType[0].toString()
+ 
+         val iv1:ImageView = findViewById(R.id.imageView3)
+         val iv2:ImageView = findViewById(R.id.imageView2)
