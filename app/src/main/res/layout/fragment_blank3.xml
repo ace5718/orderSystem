@@ -32,12 +32,12 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="20dp"
-            android:text="奶酪　　\$40"
+            android:text="奶酪\$40"
             android:textAlignment="textStart"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="160dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="5dp"
             android:focusable="true"
@@ -102,12 +102,12 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="20dp"
-            android:text="冰淇淋　\n$35"
+            android:text="冰淇淋\n$35"
             android:textAlignment="textStart"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="160dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="5dp"
             android:focusable="true"
@@ -167,17 +167,17 @@
 
         <TextView
             android:id="@+id/tv03"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="20dp"
             android:text="手工布丁\n$50"
             android:textAlignment="textStart"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="160dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="5dp"
             android:focusable="true"
@@ -237,17 +237,17 @@
 
         <TextView
             android:id="@+id/tv04"
-            android:layout_width="wrap_content"
+            android:layout_width="109dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="20dp"
             android:text="花生麻糬\n$30"
             android:textAlignment="textStart"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="160dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="5dp"
             android:focusable="true"

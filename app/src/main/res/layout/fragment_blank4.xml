@@ -34,7 +34,7 @@
             android:layout_marginEnd="20dp"
             android:text="可口可樂\n$30"
             android:textAlignment="textStart"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -104,7 +104,7 @@
             android:layout_marginEnd="20dp"
             android:text="百事可樂\n$30"
             android:textAlignment="textStart"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -174,7 +174,7 @@
             android:layout_marginEnd="20dp"
             android:text="雪碧　　\n$30"
             android:textAlignment="textStart"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -244,7 +244,7 @@
             android:layout_marginEnd="20dp"
             android:text="黑松沙士\n$30"
             android:textAlignment="textStart"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
