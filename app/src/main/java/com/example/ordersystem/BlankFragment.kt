@@ -1,5 +1,6 @@
 package com.example.ordersystem
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -20,12 +21,12 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 
-
-
 class BlankFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private var bundle: Bundle? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,31 +36,47 @@ class BlankFragment : Fragment() {
         }
     }
 
+    interface SendListener{
+        fun sendData(data : String)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank, container, false)
+        val view = inflater.inflate(R.layout.fragment_blank, container, false)
+
+        bundle = arguments
+
+        return view
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val Mactivity = context as MainActivity2
+        Mactivity.sendData("123")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val etAmount1: EditText = view.findViewById(R.id.etAmount1)
-        val etAmount2: EditText = view.findViewById(R.id.etAmount2)
-        val etAmount3: EditText = view.findViewById(R.id.etAmount3)
-        val etAmount4: EditText = view.findViewById(R.id.etAmount4)
+        val test: TextView = view.findViewById(R.id.tv01)
+        test.text = bundle?.getString("data").toString()
+
+        val etAmount1:EditText = view.findViewById(R.id.etAmount1)
+        val etAmount2:EditText = view.findViewById(R.id.etAmount2)
+        val etAmount3:EditText = view.findViewById(R.id.etAmount3)
+        val etAmount4:EditText = view.findViewById(R.id.etAmount4)
 
         val btnIncrease1:Button = view.findViewById(R.id.btnIncrease1)
-        val btnIncrease2:Button  = view.findViewById(R.id.btnIncrease2)
-        val btnIncrease3:Button  = view.findViewById(R.id.btnIncrease3)
-        val btnIncrease4:Button  = view.findViewById(R.id.btnIncrease4)
+        val btnIncrease2:Button = view.findViewById(R.id.btnIncrease2)
+        val btnIncrease3:Button = view.findViewById(R.id.btnIncrease3)
+        val btnIncrease4:Button = view.findViewById(R.id.btnIncrease4)
 
-        val btnDecrease1: Button = view.findViewById(R.id.btnDecrease1)
-        val btnDecrease2: Button = view.findViewById(R.id.btnDecrease2)
-        val btnDecrease3: Button = view.findViewById(R.id.btnDecrease3)
-        val btnDecrease4: Button = view.findViewById(R.id.btnDecrease4)
+        val btnDecrease1:Button = view.findViewById(R.id.btnDecrease1)
+        val btnDecrease2:Button = view.findViewById(R.id.btnDecrease2)
+        val btnDecrease3:Button = view.findViewById(R.id.btnDecrease3)
+        val btnDecrease4:Button = view.findViewById(R.id.btnDecrease4)
 
         btnIncrease1.setOnClickListener { calculate(etAmount1, 1) }
         btnIncrease2.setOnClickListener { calculate(etAmount2, 1) }
@@ -78,6 +95,8 @@ class BlankFragment : Fragment() {
             etAmount.setText(temp.toString())
         }
     }
+
+
 
     companion object {
         /**

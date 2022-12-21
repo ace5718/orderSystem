@@ -1,5 +1,6 @@
 package com.example.ordersystem
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -31,12 +32,22 @@ class BlankFragment4 : Fragment() {
         }
     }
 
+    interface SendListener{
+        //fun  sendData(data:String)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank4, container, false)
+        val view = inflater.inflate(R.layout.fragment_blank4, container, false)
+        return view
+    }
+
+    override fun onAttach(context: Context){
+        super.onAttach(context)
+        val  MainActivity = context as MainActivity2
+        MainActivity.sendData("")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
