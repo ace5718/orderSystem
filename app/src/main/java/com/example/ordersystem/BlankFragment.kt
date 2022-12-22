@@ -2,6 +2,7 @@ package com.example.ordersystem
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,7 @@ class BlankFragment : Fragment() {
     private var param2: String? = null
 
     private var bundle: Bundle? = null
+    private var data: ArrayList<Int>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +39,7 @@ class BlankFragment : Fragment() {
     }
 
     interface SendListener{
-        fun sendData(data : String)
+        fun sendData(data : ArrayList<Int>)
     }
 
     override fun onCreateView(
@@ -46,7 +48,7 @@ class BlankFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_blank, container, false)
 
-        bundle = arguments
+        bundle = arguments //接值
 
         return view
     }
@@ -54,14 +56,14 @@ class BlankFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         val Mactivity = context as MainActivity2
-        Mactivity.sendData("123")
+        data?.set(1,1)
+        data?.let {
+            Mactivity.sendData(it)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val test: TextView = view.findViewById(R.id.tv01)
-        test.text = bundle?.getString("data").toString()
 
         val etAmount1:EditText = view.findViewById(R.id.etAmount1)
         val etAmount2:EditText = view.findViewById(R.id.etAmount2)
@@ -78,7 +80,10 @@ class BlankFragment : Fragment() {
         val btnDecrease3:Button = view.findViewById(R.id.btnDecrease3)
         val btnDecrease4:Button = view.findViewById(R.id.btnDecrease4)
 
-        btnIncrease1.setOnClickListener { calculate(etAmount1, 1) }
+        btnIncrease1.setOnClickListener {
+            calculate(etAmount1, 1)
+        }
+
         btnIncrease2.setOnClickListener { calculate(etAmount2, 1) }
         btnIncrease3.setOnClickListener { calculate(etAmount3, 1) }
         btnIncrease4.setOnClickListener { calculate(etAmount4, 1) }
@@ -87,6 +92,10 @@ class BlankFragment : Fragment() {
         btnDecrease2.setOnClickListener { calculate(etAmount2, -1) }
         btnDecrease3.setOnClickListener { calculate(etAmount3, -1) }
         btnDecrease4.setOnClickListener { calculate(etAmount4, -1) }
+
+        data = bundle?.getIntegerArrayList("data")
+        data?.set(1, 1)
+
     }
 
     private fun calculate(etAmount: EditText, num: Int) {
@@ -95,8 +104,6 @@ class BlankFragment : Fragment() {
             etAmount.setText(temp.toString())
         }
     }
-
-
 
     companion object {
         /**

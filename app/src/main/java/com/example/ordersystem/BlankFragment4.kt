@@ -47,7 +47,7 @@ class BlankFragment4 : Fragment() {
     override fun onAttach(context: Context){
         super.onAttach(context)
         val  MainActivity = context as MainActivity2
-        MainActivity.sendData("")
+        //MainActivity.sendData("")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

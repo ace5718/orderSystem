@@ -1,35 +1,50 @@
 package com.example.ordersystem
 
-import android.content.Intent
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.HorizontalScrollView
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.core.view.marginBottom
-import androidx.core.view.marginEnd
-import androidx.core.view.marginStart
-import androidx.core.view.marginTop
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
+import androidx.appcompat.app.AppCompatActivity
+import java.util.Arrays
 
 class MainActivity2 : AppCompatActivity(),
     BlankFragment.SendListener,
     BlankFragment2.SendListener,
     BlankFragment3.SendListener,
     BlankFragment4.SendListener{
-    private lateinit var Gdata: String
+    private var Gdata: ArrayList<Int>? = ArrayList()
+    //private lateinit var Gconst: Int
+    private lateinit var data: Array<Array<Array<Int>>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-
-        val test: TextView = findViewById(R.id.textView)
-        test.text = Gdata
-
+        //Gconst = 0 //總價格
+        data = arrayOf(
+            arrayOf( //第一頁
+                arrayOf(60, 0),  //價格 數量
+                arrayOf(10, 0),
+                arrayOf(60, 0),
+                arrayOf(60, 0)
+            ),
+            arrayOf( //第二頁
+                arrayOf(30, 0),
+                arrayOf(40, 0),
+                arrayOf(75, 0),
+                arrayOf(10, 0)
+            ),
+            arrayOf( //第三頁
+                arrayOf(40, 0),
+                arrayOf(35, 0),
+                arrayOf(50, 0),
+                arrayOf(30, 0)
+            ),
+            arrayOf( //第四頁
+                arrayOf(30, 0),
+                arrayOf(30, 0),
+                arrayOf(30, 0),
+                arrayOf(30, 0)
+            )
+        ) //各頁數量統計
 
         val but01: Button = findViewById(R.id.but01)
         val but02: Button = findViewById(R.id.but02)
@@ -41,9 +56,12 @@ class MainActivity2 : AppCompatActivity(),
         val f3 = BlankFragment3()
         val f4 = BlankFragment4()
 
+
+
         but01.setOnClickListener {
+            setGdata(data[0], 0)
             val bundle = Bundle()
-            bundle.putString("data", "Gdata")
+            bundle.putIntegerArrayList("data", Gdata)
             f1.arguments = bundle
 
             supportFragmentManager.beginTransaction().apply {
@@ -71,7 +89,23 @@ class MainActivity2 : AppCompatActivity(),
         }
     }
 
-    override fun sendData(data: String) {
+    override fun sendData(data: ArrayList<Int>) {
         Gdata = data
+        Log.d("test", Gdata?.get(1).toString())
+        setData()
+        //Gconst = const
+    }
+
+    private fun setGdata(data: Array<Array<Int>>, page: Int){
+        //Gdata預計是 [ 哪一頁, 第一個選擇的數量, 第二個選擇的數量 ... ]
+        Gdata?.clear()
+        Gdata?.add(page)
+        data.forEach {
+            Gdata?.add(it[1])
+        }
+    }
+
+    private fun setData(){
+
     }
 }
