@@ -11,14 +11,13 @@ class MainActivity2 : AppCompatActivity(),
     BlankFragment2.SendListener,
     BlankFragment3.SendListener,
     BlankFragment4.SendListener{
-    private var Gdata: ArrayList<Int>? = ArrayList()
-    //private lateinit var Gconst: Int
+    private var Gdata: ArrayList<Int>? = ArrayList() //向 fragment 傳送 data 資料的載體
+    private var Gconst: Int? = 0 //總價格
     private lateinit var data: Array<Array<Array<Int>>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-        //Gconst = 0 //總價格
         data = arrayOf(
             arrayOf( //第一頁
                 arrayOf(60, 0),  //價格 數量
@@ -92,6 +91,7 @@ class MainActivity2 : AppCompatActivity(),
     override fun sendData(data: ArrayList<Int>) {
         Gdata = data
         Log.d("test", Gdata?.get(1).toString())
+        //fragment 資料來了後要來刷新 data 的資料
         setData()
         //Gconst = const
     }

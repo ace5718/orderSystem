@@ -96,6 +96,7 @@ class BlankFragment : Fragment() {
         data = bundle?.getIntegerArrayList("data")
         data?.set(1, 1)
 
+        //在點擊加減按鈕後要能回傳數值
     }
 
     private fun calculate(etAmount: EditText, num: Int) {
