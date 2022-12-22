@@ -1,15 +1,12 @@
 package com.example.ordersystem
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +25,7 @@ class BlankFragment : Fragment() {
     private var param2: String? = null
 
     private var bundle: Bundle? = null
-    private var data: ArrayList<Int>? = null
+    private var page: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +36,7 @@ class BlankFragment : Fragment() {
     }
 
     interface SendListener{
-        fun sendData(data : ArrayList<Int>)
+        fun sendData(changeData : Array<Int>)
     }
 
     override fun onCreateView(
@@ -47,19 +44,8 @@ class BlankFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_blank, container, false)
-
         bundle = arguments //接值
-
         return view
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        val Mactivity = context as MainActivity2
-        data?.set(1,1)
-        data?.let {
-            Mactivity.sendData(it)
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -80,30 +66,38 @@ class BlankFragment : Fragment() {
         val btnDecrease3:Button = view.findViewById(R.id.btnDecrease3)
         val btnDecrease4:Button = view.findViewById(R.id.btnDecrease4)
 
-        btnIncrease1.setOnClickListener {
-            calculate(etAmount1, 1)
+        val data: ArrayList<Int>? = bundle?.getIntegerArrayList("data")
+        if (data != null) {
+            etAmount1.setText(data[0].toString())
+            etAmount2.setText(data[1].toString())
+            etAmount3.setText(data[2].toString())
+            etAmount4.setText(data[3].toString())
         }
 
-        btnIncrease2.setOnClickListener { calculate(etAmount2, 1) }
-        btnIncrease3.setOnClickListener { calculate(etAmount3, 1) }
-        btnIncrease4.setOnClickListener { calculate(etAmount4, 1) }
+        btnIncrease1.setOnClickListener { calculate(etAmount1, 1, 0) }
+        btnIncrease2.setOnClickListener { calculate(etAmount2, 1, 1) }
+        btnIncrease3.setOnClickListener { calculate(etAmount3, 1, 2) }
+        btnIncrease4.setOnClickListener { calculate(etAmount4, 1, 3) }
 
-        btnDecrease1.setOnClickListener { calculate(etAmount1, -1) }
-        btnDecrease2.setOnClickListener { calculate(etAmount2, -1) }
-        btnDecrease3.setOnClickListener { calculate(etAmount3, -1) }
-        btnDecrease4.setOnClickListener { calculate(etAmount4, -1) }
-
-        data = bundle?.getIntegerArrayList("data")
-        data?.set(1, 1)
-
-        //在點擊加減按鈕後要能回傳數值
+        btnDecrease1.setOnClickListener { calculate(etAmount1, -1, 0) }
+        btnDecrease2.setOnClickListener { calculate(etAmount2, -1, 1) }
+        btnDecrease3.setOnClickListener { calculate(etAmount3, -1, 2) }
+        btnDecrease4.setOnClickListener { calculate(etAmount4, -1, 3) }
     }
 
-    private fun calculate(etAmount: EditText, num: Int) {
+    private fun calculate(etAmount: EditText, num: Int, btnNumber: Int) {
         val temp = etAmount.text.toString().toInt() + num
         if (temp >= 0){
+            pushData(temp, btnNumber)
             etAmount.setText(temp.toString())
         }
+    }
+
+    private fun pushData(changeNumber: Int, btnNumber: Int){
+        val Mactivity = context as MainActivity2
+        Mactivity.sendData(
+            arrayOf(page, btnNumber, changeNumber)
+        )
     }
 
     companion object {
