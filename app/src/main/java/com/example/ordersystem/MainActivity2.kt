@@ -71,10 +71,13 @@ class MainActivity2 : AppCompatActivity(),
         btn05.setOnClickListener {
             Intent(this,MainActivity6::class.java).apply {
                 val bundle = Bundle().apply {
-                    putString("data", getOrderData())
+                    putStringArray("personalData",
+                        intent.getBundleExtra("Bundle")?.getStringArray("personalData")
+                    )
+                    putString("orderData", getOrderData())
                     putInt("total", total)
                 }
-                this.putExtra("TextBundle" ,bundle)
+                this.putExtra("Bundle" ,bundle)
                 startActivity(this)
             }
         }

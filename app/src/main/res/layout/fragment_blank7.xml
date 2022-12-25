@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_weight="0"
-        android:text="外送資料"
+        android:text="取餐地址"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -31,7 +31,7 @@
             android:layout_marginEnd="5dp"
             android:layout_weight="0"
             android:text="地址"
-            android:textSize="22dp" />
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/editTextTextPersonName5"
