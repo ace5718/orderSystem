@@ -2,9 +2,11 @@ package com.example.ordersystem
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -54,27 +56,56 @@ class MainActivity2 : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
+        val img: ImageView = findViewById(R.id.imageView1)
+        img.setOnClickListener{
+            Intent(this,MainActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
+
+        val returnBundle = intent.getBundleExtra("returnBundle")
+        var personalData: Array<String> = intent.getBundleExtra("Bundle")?.getStringArray("personalData") as Array<String>
+        if (returnBundle != null){
+            personalData = returnBundle.getStringArray("personalData") as Array<String>
+            setData(returnBundle.getStringArrayList("orderData") as ArrayList<String>)
+            total = returnBundle.getInt("total")
+        }
+
         val btn01: Button = findViewById(R.id.but01)
         val btn02: Button = findViewById(R.id.but02)
         val btn03: Button = findViewById(R.id.but03)
         val btn04: Button = findViewById(R.id.but04)
         val btn05: Button = findViewById(R.id.button5)
 
-        totalTextView = findViewById(R.id.textView3)
+        changeFragment(btn01, BlankFragment(), 0)
         setConstTextView(0)
 
-        btn01.setOnClickListener { changeFragment(BlankFragment(), 0) }
-        btn02.setOnClickListener { changeFragment(BlankFragment2(), 1) }
-        btn03.setOnClickListener { changeFragment(BlankFragment3(), 2) }
-        btn04.setOnClickListener { changeFragment(BlankFragment4(), 3) }
+        btn01.setOnClickListener {
+            resetBtnColor(btn01,btn02,btn03,btn04)
+            changeFragment(btn01, BlankFragment(), 0)
+        }
+
+        btn02.setOnClickListener {
+            resetBtnColor(btn01,btn02,btn03,btn04)
+            changeFragment(btn02, BlankFragment2(), 1)
+        }
+
+        btn03.setOnClickListener {
+            resetBtnColor(btn01,btn02,btn03,btn04)
+            changeFragment(btn03, BlankFragment3(), 2)
+        }
+
+        btn04.setOnClickListener {
+            resetBtnColor(btn01,btn02,btn03,btn04)
+            changeFragment(btn04, BlankFragment4(), 3)
+        }
 
         btn05.setOnClickListener {
             Intent(this,MainActivity6::class.java).apply {
                 val bundle = Bundle().apply {
-                    putStringArray("personalData",
-                        intent.getBundleExtra("Bundle")?.getStringArray("personalData")
-                    )
-                    putString("orderData", getOrderData())
+                    putStringArray("personalData", personalData)
+                    putString("orderList", getOrderList())
+                    putStringArrayList("orderData", getOrderData())
                     putInt("total", total)
                 }
                 this.putExtra("Bundle" ,bundle)
@@ -92,16 +123,28 @@ class MainActivity2 : AppCompatActivity(),
         data[changeData[0]][changeData[1]][1] = changeData[2]
     }
 
-    private fun changeFragment(fragment: Fragment, page: Int){
+    private fun changeFragment(btn: Button, fragment: Fragment, page: Int){
+        setBtnColor(btn)
         setDataTemp(data[page])
-        Log.d("test", dataTemp[0].toString())
         val bundle = Bundle()
         bundle.putIntegerArrayList("data", dataTemp)
         fragment.arguments = bundle
-
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragmentContainerView, fragment)
             commit()
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setConstTextView(addTotal: Int){
+        total += addTotal
+        totalTextView?.text = "總金額： $total"
+    }
+
+    private fun setData(orderData: ArrayList<String>){
+        orderData.forEach{
+            val temp: List<String> = it.split(" ")
+            data[temp[0].toInt()][temp[1].toInt()][1] = temp[2].toInt()
         }
     }
 
@@ -113,7 +156,23 @@ class MainActivity2 : AppCompatActivity(),
         }
     }
 
-    private fun getOrderData(): String{
+    private fun setBtnColor(btn: Button){
+        btn.backgroundTintList = ColorStateList.valueOf(Color.CYAN)
+        btn.setTextColor(Color.parseColor("#000000"))
+    }
+
+    private fun resetBtnColor(btn01: Button, btn02: Button, btn03: Button, btn04: Button){
+        btn01.setTextColor(Color.parseColor("#FFFFFF"))
+        btn02.setTextColor(Color.parseColor("#FFFFFF"))
+        btn03.setTextColor(Color.parseColor("#FFFFFF"))
+        btn04.setTextColor(Color.parseColor("#FFFFFF"))
+        btn01.backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
+        btn02.backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
+        btn03.backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
+        btn04.backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
+    }
+
+    private fun getOrderList(): String{
         var str = ""
         data.forEachIndexed {i, element ->
             element.forEachIndexed { j, element2 ->
@@ -122,13 +181,18 @@ class MainActivity2 : AppCompatActivity(),
                 }
             }
         }
-        Log.d("test", str)
         return str
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun setConstTextView(addTotal: Int){
-        total += addTotal
-        totalTextView?.text = "總金額： $total"
+    private fun getOrderData(): ArrayList<String>{
+        val array = ArrayList<String>()
+        data.forEachIndexed {i, element ->
+            element.forEachIndexed { j, element2 ->
+                if ( element2[1] > 0 ){
+                    array.add("$i $j ${element2[1]}")
+                }
+            }
+        }
+        return array
     }
 }

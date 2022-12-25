@@ -8,6 +8,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.app.NotificationCompat
 
@@ -17,18 +18,33 @@ class MainActivity6 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main6)
 
+        val img: ImageView = findViewById(R.id.imageView1)
+        img.setOnClickListener{
+            Intent(this,MainActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
+
         val bundle = intent.getBundleExtra("Bundle")
         val personalData: Array<String> = bundle?.getStringArray("personalData") as Array<String>
-        val orderData: String = bundle.getString("orderData").toString()
+        val orderList: String = bundle.getString("orderList").toString()
+        val orderData: ArrayList<String> = bundle?.getStringArrayList("orderData") as ArrayList<String>
         val total:String = bundle.getInt("total").toString()
 
-        setText(personalData, orderData,total)
+        setText(personalData, orderList,total)
 
         val btn:Button = findViewById(R.id.button)
         val btn2:Button = findViewById(R.id.button2)
 
         btn.setOnClickListener{
             Intent(this,MainActivity2::class.java).apply {
+                val bundle = Bundle().apply {
+                    putStringArray("personalData", personalData)
+                    putStringArrayList("orderData", orderData)
+                    putInt("total", total.toInt())
+
+                }
+                this.putExtra("returnBundle" ,bundle)
                 startActivity(this)
             }
         }
@@ -51,17 +67,17 @@ class MainActivity6 : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun setText(personalData: Array<String>, orderData: String,total: String){
+    private fun setText(personalData: Array<String>, orderList: String,total: String){
         val addressText: TextView = findViewById(R.id.textView4)
         val nameText: TextView = findViewById(R.id.textView7)
         val phoneText: TextView = findViewById(R.id.textView9)
-        val orderList: TextView = findViewById(R.id.textView11)
+        val orderListText: TextView = findViewById(R.id.textView11)
         val totalText: TextView = findViewById(R.id.textView13)
 
         addressText.text = personalData[0]
         nameText.text = personalData[1]
         phoneText.text = personalData[2]
-        orderList.text = orderData
+        orderListText.text = orderList
         totalText.text = "總金額:$total"
     }
 }

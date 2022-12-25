@@ -5,12 +5,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 
 class MainActivity3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
+
+        val img: ImageView = findViewById(R.id.imageView1)
+        img.setOnClickListener{
+            Intent(this,MainActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
 
         var bundle = intent.getBundleExtra("Bundle")
         val type = bundle?.getInt("type")
