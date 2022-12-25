@@ -116,9 +116,9 @@ class MainActivity2 : AppCompatActivity(),
     private fun getOrderData(): String{
         var str = ""
         data.forEachIndexed {i, element ->
-            element.forEachIndexed { j, element ->
-                if ( element[1] > 0 ){
-                    str += "${element[1]} X ${dataName[i][j]}　$ ${element[0] * element[1]}\n"
+            element.forEachIndexed { j, element2 ->
+                if ( element2[1] > 0 ){
+                    str += "${element2[1]} X ${dataName[i][j]}　$ ${element2[0] * element2[1]}\n"
                 }
             }
         }

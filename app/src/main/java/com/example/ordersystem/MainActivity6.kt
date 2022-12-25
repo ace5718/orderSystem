@@ -7,7 +7,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.app.NotificationCompat
@@ -45,7 +44,7 @@ class MainActivity6 : AppCompatActivity() {
                 setSubText("訂單提示")
                 setChannelId("myChannel")
                 setWhen(System.currentTimeMillis())
-                setSmallIcon(R.drawable.manpuku_geppu)
+                setSmallIcon(R.drawable.logo)
             }
             manager.notify(1, builder.build())
         }

@@ -1,5 +1,72 @@
 <resources>
-    <string name="app_name">orderSystem</string>
+    <string name="app_name">吃飽食堂</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_logo">title_logo</string>
+    <string name="take_away_logo">take_away_logo</string>
+    <string name="delivery_logo">delivery_logo</string>
+
+    <string name="take_away">外帶</string>
+    <string name="delivery">外送</string>
+
+    <string name="staple_food">主食</string>
+    <string name="side_dish">小菜</string>
+    <string name="dessert">點心</string>
+    <string name="drinks">飲品</string>
+
+    <string name="_total_amount">總金額：</string>
+    <string name="go_to_checkout">前往結帳</string>
+    <string name="go_to_order">前往點餐</string>
+    <string name="continue_shopping">繼續購物</string>
+    <string name="complete_order">完成點餐</string>
+
+    <string name="personal_information">個人資料</string>
+    <string name="_name">姓名：</string>
+    <string name="_telephone">電話：</string>
+
+    <string name="pickup_address">取餐地址</string>
+    <string name="_address">地址：</string>
+    <string name="order_content">訂單內容</string>
+    <string name="default_address">220新北市板橋區文化路一段313號</string>
+
+    <string name="staple_food1">滷肉飯</string>
+    <string name="staple_food2">焢肉飯</string>
+    <string name="staple_food3">豬腳飯</string>
+    <string name="staple_food4">白　飯</string>
+    <string name="_staple_food1">滷肉飯\n$60</string>
+    <string name="_staple_food2">焢肉飯\n$60</string>
+    <string name="_staple_food3">豬腳飯\n$60</string>
+    <string name="_staple_food4">白　飯\n$10</string>
+
+    <string name="side_dish1">燙青菜</string>
+    <string name="side_dish2">皮蛋豆腐</string>
+    <string name="side_dish3">滷豬腳</string>
+    <string name="side_dish4">荷包蛋</string>
+    <string name="_side_dish1">燙青菜\n$30</string>
+    <string name="_side_dish2">皮蛋\n豆腐\n$40</string>
+    <string name="_side_dish3">滷豬腳\n$75</string>
+    <string name="_side_dish4">荷包蛋\n$10</string>
+
+    <string name="dessert1">奶酪</string>
+    <string name="dessert2">冰淇淋</string>
+    <string name="dessert3">手工布丁</string>
+    <string name="dessert4">花生麻糬</string>
+    <string name="_dessert1">奶　酪\n$40</string>
+    <string name="_dessert2">冰淇淋\n$35</string>
+    <string name="_dessert3">手工\n布丁\n$50</string>
+    <string name="_dessert4">花生\n麻糬\n$30</string>
+
+    <string name="drinks1">可口可樂</string>
+    <string name="drinks2">百事可樂</string>
+    <string name="drinks3">雪碧</string>
+    <string name="drinks4">黑松沙士</string>
+    <string name="_drinks1">可口\n可樂\n$30</string>
+    <string name="_drinks2">百事\n可樂\n$30</string>
+    <string name="_drinks3">雪　碧\n$30</string>
+    <string name="_drinks4">黑松\n沙士\n$30</string>
+
+    <string name="minus_sign">-</string>
+    <string name="plus_sign">+</string>
+    <string name="zero">0</string>
+
+
 </resources>

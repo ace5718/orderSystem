@@ -1,13 +1,12 @@
 package com.example.ordersystem
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
+import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,10 +50,10 @@ class BlankFragment3 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val etAmount1: EditText = view.findViewById(R.id.etAmount1)
-        val etAmount2: EditText = view.findViewById(R.id.etAmount2)
-        val etAmount3: EditText = view.findViewById(R.id.etAmount3)
-        val etAmount4: EditText = view.findViewById(R.id.etAmount4)
+        val amount1: TextView = view.findViewById(R.id.amount1)
+        val amount2: TextView = view.findViewById(R.id.amount2)
+        val amount3: TextView = view.findViewById(R.id.amount3)
+        val amount4: TextView = view.findViewById(R.id.amount4)
 
         val btnIncrease1: Button = view.findViewById(R.id.btnIncrease1)
         val btnIncrease2: Button = view.findViewById(R.id.btnIncrease2)
@@ -68,34 +67,34 @@ class BlankFragment3 : Fragment() {
 
         val data: ArrayList<Int>? = bundle?.getIntegerArrayList("data")
         if (data != null) {
-            etAmount1.setText(data[0].toString())
-            etAmount2.setText(data[1].toString())
-            etAmount3.setText(data[2].toString())
-            etAmount4.setText(data[3].toString())
+            amount1.text = data[0].toString()
+            amount2.text = data[1].toString()
+            amount3.text = data[2].toString()
+            amount4.text = data[3].toString()
         }
 
-        btnIncrease1.setOnClickListener { calculate(etAmount1, 1, 0) }
-        btnIncrease2.setOnClickListener { calculate(etAmount2, 1, 1) }
-        btnIncrease3.setOnClickListener { calculate(etAmount3, 1, 2) }
-        btnIncrease4.setOnClickListener { calculate(etAmount4, 1, 3) }
+        btnIncrease1.setOnClickListener { calculate(amount1, 1, 0) }
+        btnIncrease2.setOnClickListener { calculate(amount2, 1, 1) }
+        btnIncrease3.setOnClickListener { calculate(amount3, 1, 2) }
+        btnIncrease4.setOnClickListener { calculate(amount4, 1, 3) }
 
-        btnDecrease1.setOnClickListener { calculate(etAmount1, -1, 0) }
-        btnDecrease2.setOnClickListener { calculate(etAmount2, -1, 1) }
-        btnDecrease3.setOnClickListener { calculate(etAmount3, -1, 2) }
-        btnDecrease4.setOnClickListener { calculate(etAmount4, -1, 3) }
+        btnDecrease1.setOnClickListener { calculate(amount1, -1, 0) }
+        btnDecrease2.setOnClickListener { calculate(amount2, -1, 1) }
+        btnDecrease3.setOnClickListener { calculate(amount3, -1, 2) }
+        btnDecrease4.setOnClickListener { calculate(amount4, -1, 3) }
     }
 
-    private fun calculate(etAmount: EditText, num: Int, btnNumber: Int) {
-        val temp = etAmount.text.toString().toInt() + num
+    private fun calculate(amount: TextView, num: Int, btnNumber: Int) {
+        val temp = amount.text.toString().toInt() + num
         if (temp >= 0){
             pushData(temp, btnNumber)
-            etAmount.setText(temp.toString())
+            amount.text = temp.toString()
         }
     }
 
     private fun pushData(changeNumber: Int, btnNumber: Int){
-        val Mactivity = context as MainActivity2
-        Mactivity.sendData(
+        val mactivity = context as MainActivity2
+        mactivity.sendData(
             arrayOf(page, btnNumber, changeNumber)
         )
     }

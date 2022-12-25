@@ -30,7 +30,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/manpuku_geppu" />
+                android:contentDescription="@string/title_logo"
+                app:srcCompat="@drawable/logo" />
 
             <TextView
                 android:id="@+id/textView"
@@ -38,72 +39,67 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="0dp"
-                android:text="吃飽食堂"
+                android:text="@string/app_name"
                 android:textSize="40sp" />
 
         </LinearLayout>
 
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/LinearLayout"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <Button
                     android:id="@+id/but01"
-                    android:layout_width="100dp"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
                     android:layout_height="100dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="0"
-                    android:backgroundTint="#4EB0FB"
-                    android:text="主食"
-                    android:textAlignment="center"
-                    android:textSize="26sp" />
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/purple_500"
+                    android:text="@string/staple_food"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/but02"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="0"
-                    android:text="小菜"
-                    android:textAlignment="center"
-                    android:textSize="26sp" />
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/purple_500"
+                    android:text="@string/side_dish"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/but03"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="0"
-                    android:text="點心"
-                    android:textAlignment="center"
-                    android:textSize="26sp" />
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/purple_500"
+                    android:text="@string/dessert"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/but04"
-                    android:layout_width="wrap_content"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
                     android:layout_height="100dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="0"
-                    android:text="飲品"
-                    android:textAlignment="center"
-                    android:textSize="26sp" />
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/purple_500"
+                    android:text="@string/drinks"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
 
             </LinearLayout>
         </HorizontalScrollView>
@@ -130,21 +126,13 @@
                     android:layout_marginTop="5dp"
                     android:orientation="vertical">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/textView3"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/textView3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="總金額："
-                            android:textSize="34sp" />
-
-                    </LinearLayout>
+                        android:text="@string/_total_amount"
+                        android:textSize="34sp" />
 
                     <Button
                         android:id="@+id/button5"
@@ -155,7 +143,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="#ff0000"
-                        android:text="前往結帳"
+                        android:text="@string/go_to_checkout"
                         android:textSize="30sp" />
 
                 </LinearLayout>

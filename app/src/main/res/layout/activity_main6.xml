@@ -30,7 +30,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/manpuku_geppu" />
+                app:srcCompat="@drawable/logo"
+                android:contentDescription="@string/title_logo"/>
 
             <TextView
                 android:id="@+id/textView"
@@ -38,19 +39,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="0dp"
-                android:text="吃飽食堂"
+                android:text="@string/app_name"
                 android:textSize="40sp" />
 
         </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -64,16 +65,14 @@
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
-                        android:layout_weight="0"
-                        android:text="取餐地址"
+                        android:text="@string/pickup_address"
                         android:textSize="20sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0"
                         android:orientation="horizontal">
 
                         <TextView
@@ -81,8 +80,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginStart="15dp"
-                            android:layout_weight="0"
-                            android:text="地址："
+                            android:text="@string/_address"
                             android:textSize="20sp" />
 
                         <TextView
@@ -91,7 +89,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="10dp"
-                            android:text="TextView"
+                            android:text=""
                             android:textSize="20sp" />
                     </LinearLayout>
 
@@ -110,14 +108,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:layout_weight="0"
-                        android:text="個人資料"
+                        android:text="@string/personal_information"
                         android:textSize="20sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0"
                         android:orientation="horizontal">
 
                         <TextView
@@ -125,8 +121,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginStart="15dp"
-                            android:layout_weight="0"
-                            android:text="姓名："
+                            android:text="@string/_name"
                             android:textSize="20sp" />
 
                         <TextView
@@ -135,14 +130,13 @@
                             android:layout_height="match_parent"
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="10dp"
-                            android:text="TextView"
+                            android:text=""
                             android:textSize="20sp" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0"
                         android:orientation="horizontal">
 
                         <TextView
@@ -150,8 +144,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginStart="15dp"
-                            android:layout_weight="0"
-                            android:text="電話："
+                            android:text="@string/_telephone"
                             android:textSize="20sp" />
 
                         <TextView
@@ -160,7 +153,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="10dp"
-                            android:text="TextView"
+                            android:text=""
                             android:textSize="20sp" />
                     </LinearLayout>
 
@@ -179,26 +172,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:layout_weight="0"
-                        android:text="訂單內容"
+                        android:text="@string/order_content"
                         android:textSize="20sp" />
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/textView11"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/textView11"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="15dp"
-                            android:layout_weight="0"
-                            android:text="textView11"
-                            android:textSize="20sp" />
-
-                    </LinearLayout>
+                        android:layout_marginStart="15dp"
+                        android:text=""
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -217,7 +200,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="10sp"
                 android:layout_weight="1"
-                android:text="總金額："
+                android:text="@string/_total_amount"
                 android:textSize="34sp" />
 
             <LinearLayout
@@ -235,20 +218,20 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="0dp"
                     android:backgroundTint="#F6BC2A"
-                    android:text="繼續購物"
-                    android:textSize="30sp" />
+                    android:text="@string/continue_shopping"
+                    android:textSize="30sp"
+                    tools:ignore="TextContrastCheck" />
 
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_weight="1"
                     android:backgroundTint="#ff0000"
-                    android:text="完成點餐"
+                    android:text="@string/complete_order"
                     android:textSize="30sp" />
             </LinearLayout>
 
